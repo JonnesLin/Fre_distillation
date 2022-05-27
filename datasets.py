@@ -1,6 +1,6 @@
 import csv, torchvision, numpy as np, random, os
 from PIL import Image
-
+import numpy as np
 from torch.utils.data import Sampler, Dataset, DataLoader, BatchSampler, SequentialSampler, RandomSampler, Subset
 from torchvision import transforms, datasets
 from collections import defaultdict
