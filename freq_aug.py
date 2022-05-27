@@ -1,5 +1,5 @@
 import numpy as np
-
+import random
 def get_mask(n1, n2, r):
     arr = np.zeros((n1, n2))
     # arr = np.ones((n1, n2))
