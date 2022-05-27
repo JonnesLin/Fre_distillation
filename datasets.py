@@ -4,7 +4,7 @@ import numpy as np
 from torch.utils.data import Sampler, Dataset, DataLoader, BatchSampler, SequentialSampler, RandomSampler, Subset
 from torchvision import transforms, datasets
 from collections import defaultdict
-
+from .freq_aug import get_mask, fourier_transform_rgb
 
 class PairBatchSampler(Sampler):
     def __init__(self, dataset, batch_size, num_iterations=None):
@@ -218,6 +218,7 @@ def load_dataset(name, root, sample='default', **kwargs):
 
     elif name.startswith('cifar'):
         transform_train = transforms.Compose([
+            transforms.Lambda(lambda img: fourier_transform_rgb(img, 32, None)),
             transforms.RandomCrop(32, padding=4),
             transforms.RandomHorizontalFlip(),
             transforms.ToTensor(),
