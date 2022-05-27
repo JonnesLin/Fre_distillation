@@ -18,8 +18,11 @@ def get_mask(n1, n2, r):
 mask = get_mask(224, 224, 80)
 
 
-def fourier_transform_rgb(image, mask_size, R):
+def fourier_transform_rgb(image, mask_size, R=None):
     f_size = 25
+    if R is None:
+        # Randomly get a R
+        R = int(random.uniform(int(mask_size//2*0.8),int(mask_size//2* math.sqrt(2))+1))
     mask = get_mask(mask_size, mask_size, R)
     transformed_channels = []
     n1 = image.shape[-2]
