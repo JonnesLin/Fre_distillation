@@ -16,6 +16,10 @@ train fine-grained dataset on resnet with class-wise regularization losses
 
 `python3 train.py --sgpu 0 --lr 0.1 --epoch 200 --model resnet18 --name test_cub200 --batch-size 32 --decay 1e-4 --dataset CUB200   --dataroot ~/data/ -cls --lamda 3`
 
+# Note
+## About our work
+Taking care to the 221 line on datasets.py and freq_aug.py.
+
 ## Citation
 If you use this code for your research, please cite our papers.
 ```
@@ -27,3 +31,4 @@ month = {June},
 year = {2020}
 }
 ```
+
